@@ -4,7 +4,10 @@
 
 ## 시연 영상
 
-https://github.com/revfactory/vrgmae/assets/1053079/vrgame-demo
+<video width="100%" controls>
+  <source src="vrgame.mp4" type="video/mp4">
+  Your browser does not support the video tag.
+</video>
 
 ## 주요 기능
 
