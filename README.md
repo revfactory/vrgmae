@@ -2,6 +2,10 @@
 
 웹 브라우저에서 실시간으로 객체를 인식하고 VR 모드로 볼 수 있는 웹 애플리케이션입니다.
 
+## 시연 영상
+
+https://github.com/user-attachments/assets/vrgame.mp4
+
 ## 주요 기능
 
 - **실시간 객체 인식**: TensorFlow.js와 COCO-SSD 모델을 사용한 실시간 객체 감지
