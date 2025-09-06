@@ -4,7 +4,7 @@
 
 ## 시연 영상
 
-https://github.com/revfactory/vrgmae/assets/1053079/ed9a5e5f-8f2f-4f38-b9fa-c8e5a9b6f2d5
+https://www.youtube.com/shorts/r8xS4rwfNjA
 
 ## 주요 기능
 
