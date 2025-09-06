@@ -4,7 +4,8 @@
 
 ## 시연 영상
 
-https://www.youtube.com/shorts/r8xS4rwfNjA
+[![Video Title](https://www.youtube.com/shorts/r8xS4rwfNjA)](https://www.youtube.com/shorts/r8xS4rwfNjA)
+
 
 ## 주요 기능
 
