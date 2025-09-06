@@ -3,8 +3,7 @@
 웹 브라우저에서 실시간으로 객체를 인식하고 VR 모드로 볼 수 있는 웹 애플리케이션입니다.
 
 ## 시연 영상
-
-[![Video Title](https://www.youtube.com/shorts/r8xS4rwfNjA)](https://www.youtube.com/shorts/r8xS4rwfNjA)
+https://github.com/user-attachments/assets/e69ea818-28a7-4dde-8a89-0e27140b63f6
 
 
 ## 주요 기능
