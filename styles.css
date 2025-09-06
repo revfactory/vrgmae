@@ -1,0 +1,270 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    overflow: hidden;
+    position: relative;
+    background: #000;
+    width: 100vw;
+    height: 100vh;
+}
+
+/* Main Video */
+#video {
+    position: fixed;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    z-index: 1;
+}
+
+/* VR Container */
+#vr-container {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    display: none;
+    z-index: 100;
+    background: #000;
+}
+
+#vr-container.active {
+    display: flex;
+}
+
+.vr-view {
+    width: 50%;
+    height: 100%;
+    position: relative;
+    overflow: hidden;
+    border: 2px solid #000;
+}
+
+.vr-view video {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.labels-overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    pointer-events: none;
+}
+
+.object-label {
+    position: absolute;
+    background: rgba(0, 0, 0, 0.9);
+    color: #fff;
+    padding: 8px 12px;
+    border-radius: 5px;
+    font-size: 13px;
+    font-weight: bold;
+    white-space: pre-wrap;
+    transform: translate(-50%, -50%);
+    border: 2px solid;
+    line-height: 1.3;
+    text-align: center;
+    min-width: 120px;
+}
+
+/* Control Panel */
+#controls {
+    position: fixed;
+    top: 10px;
+    left: 10px;
+    z-index: 200;
+    background: rgba(0, 0, 0, 0.8);
+    padding: 15px;
+    border-radius: 10px;
+    color: white;
+    backdrop-filter: blur(10px);
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    max-width: 200px;
+}
+
+.control-btn {
+    padding: 10px 20px;
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 14px;
+    font-weight: bold;
+    transition: all 0.3s ease;
+}
+
+.control-btn:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 5px 15px rgba(102, 126, 234, 0.4);
+}
+
+.control-btn:active {
+    transform: translateY(0);
+}
+
+.control-btn.active {
+    background: linear-gradient(135deg, #f093fb 0%, #f5576c 100%);
+}
+
+#status {
+    font-size: 12px;
+    color: #4ade80;
+    margin-top: 5px;
+}
+
+#detectionCount {
+    font-size: 12px;
+    color: #60a5fa;
+    margin-top: 5px;
+}
+
+/* Info Panel */
+#info-panel {
+    position: fixed;
+    top: 10px;
+    right: 10px;
+    z-index: 200;
+    background: rgba(0, 0, 0, 0.8);
+    padding: 15px;
+    border-radius: 10px;
+    color: white;
+    backdrop-filter: blur(10px);
+    max-width: 250px;
+    max-height: 300px;
+    overflow-y: auto;
+}
+
+#info-panel h3 {
+    margin-bottom: 10px;
+    font-size: 16px;
+    color: #a78bfa;
+    border-bottom: 1px solid rgba(167, 139, 250, 0.3);
+    padding-bottom: 5px;
+}
+
+#detected-objects {
+    list-style: none;
+    padding: 0;
+}
+
+#detected-objects li {
+    padding: 8px;
+    margin: 5px 0;
+    background: rgba(99, 102, 241, 0.2);
+    border-radius: 5px;
+    font-size: 14px;
+    border-left: 3px solid #818cf8;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+#detected-objects li > div {
+    display: flex;
+    flex-direction: column;
+    gap: 2px;
+}
+
+#detected-objects li .carbon-info {
+    font-size: 11px;
+    color: #10b981;
+    background: rgba(16, 185, 129, 0.1);
+    padding: 2px 4px;
+    border-radius: 3px;
+    display: inline-block;
+}
+
+#detected-objects li .confidence {
+    font-size: 12px;
+    color: #94a3b8;
+    background: rgba(148, 163, 184, 0.2);
+    padding: 2px 6px;
+    border-radius: 3px;
+}
+
+/* Canvas for debugging */
+#canvas {
+    position: fixed;
+    bottom: 10px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 200px;
+    height: 150px;
+    border: 2px solid #667eea;
+    border-radius: 5px;
+    z-index: 150;
+    opacity: 0.7;
+    display: none;
+}
+
+#canvas.debug {
+    display: block;
+}
+
+/* Mobile Responsiveness */
+@media (max-width: 768px) {
+    #controls {
+        top: 5px;
+        left: 5px;
+        padding: 10px;
+        max-width: 150px;
+    }
+    
+    #info-panel {
+        top: auto;
+        bottom: 10px;
+        right: 10px;
+        max-height: 200px;
+        max-width: 200px;
+    }
+    
+    .control-btn {
+        padding: 8px 15px;
+        font-size: 12px;
+    }
+    
+    #info-panel h3 {
+        font-size: 14px;
+    }
+    
+    #detected-objects li {
+        font-size: 12px;
+        padding: 6px;
+    }
+    
+    .object-label {
+        font-size: 11px;
+        padding: 4px 6px;
+        min-width: 100px;
+    }
+}
+
+/* VR Mode Active State */
+body.vr-active #video {
+    display: none;
+}
+
+body.vr-active #vr-container {
+    display: flex;
+}
+
+/* Fullscreen mode */
+@media (orientation: landscape) and (max-height: 500px) {
+    #controls,
+    #info-panel {
+        display: none;
+    }
+}

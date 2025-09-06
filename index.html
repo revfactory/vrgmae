@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <title>VR 실시간 객체 인식</title>
+    <link rel="stylesheet" href="styles.css">
+    
+    <!-- TensorFlow.js and COCO-SSD model -->
+    <script src="https://cdn.jsdelivr.net/npm/@tensorflow/tfjs@4.10.0/dist/tf.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@tensorflow-models/coco-ssd@2.2.2/dist/coco-ssd.min.js"></script>
+</head>
+<body>
+    <!-- Main Video Display -->
+    <video id="video" autoplay playsinline muted></video>
+    
+    <!-- Canvas for video processing -->
+    <canvas id="canvas"></canvas>
+    
+    <!-- VR View Container -->
+    <div id="vr-container">
+        <div id="vr-left" class="vr-view">
+            <video id="video-left" autoplay playsinline muted></video>
+            <div id="labels-left" class="labels-overlay"></div>
+        </div>
+        <div id="vr-right" class="vr-view">
+            <video id="video-right" autoplay playsinline muted></video>
+            <div id="labels-right" class="labels-overlay"></div>
+        </div>
+    </div>
+
+    <!-- Control Panel -->
+    <div id="controls">
+        <button id="startBtn" class="control-btn">VR 모드</button>
+        <button id="toggleDetection" class="control-btn active">인식 중지</button>
+        <div id="status">카메라 준비 중...</div>
+        <div id="detectionCount">감지된 객체: 0</div>
+    </div>
+
+    <!-- Info Panel -->
+    <div id="info-panel">
+        <h3>감지된 객체 목록</h3>
+        <ul id="detected-objects"></ul>
+    </div>
+
+    <script src="app.js"></script>
+</body>
+</html>
