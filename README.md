@@ -4,7 +4,7 @@
 
 ## 시연 영상
 
-https://github.com/user-attachments/assets/838e8b8b-1e42-4e11-8b4e-3a9f5e8c7d9f
+https://github.com/revfactory/vrgmae/assets/1053079/vrgame-demo
 
 ## 주요 기능
 
